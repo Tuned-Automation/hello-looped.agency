@@ -133,7 +133,7 @@ export function Footer() {
               </a>
             </div>
             
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-400 text-sm"> 
               © 2024 Looped. All rights reserved.
             </div>
           </div>
