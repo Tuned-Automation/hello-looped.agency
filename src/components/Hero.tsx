@@ -11,7 +11,7 @@ export function Hero() {
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-blue-800 bg-clip-text text-transparent leading-tight">
-            Mastering Social Media Success
+            Turn Likes, Comments and Followers into Customers
           </h1>
 
           {/* Subheading */}
