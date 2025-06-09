@@ -29,7 +29,7 @@ export function Testimonials() {
       name: "David Park",
       company: "FitLife Gym",
       role: "CEO",
-      content: "The team at Looped doesn't just create content; they create experiences. Our gym's social media now tells compelling stories that motivate and inspire our community every single day.",
+      content: "The team at Looped doesn&apos;sjust create content; they create experiences. Our gym&apos;ssocial media now tells compelling stories that motivate and inspire our community every single day.",
       rating: 5
     }
   ]
@@ -55,7 +55,7 @@ export function Testimonials() {
             What Our Clients Say
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with Looped.
+            Don&apos;sjust take our word for it. Here&apos;swhat our clients have to say about working with Looped.
           </p>
         </div>
 

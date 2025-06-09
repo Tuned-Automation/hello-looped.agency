@@ -54,7 +54,7 @@ export function Team() {
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Our diverse team of social media specialists, strategists, and creatives work together 
-            to bring your brand's vision to life.
+            to bring your brand&apos;svision to life.
           </p>
         </div>
 

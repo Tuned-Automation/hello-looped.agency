@@ -9,15 +9,15 @@ export function About() {
               About Looped
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              We're passionate about helping brands tell their story
+              We&apos;spassionate about helping brands tell their story
             </h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               Founded in 2020, Looped has grown from a small startup to a leading social media marketing agency. 
-              We believe every brand has a unique story worth telling, and we're here to help you tell it in the most compelling way possible.
+              We believe every brand has a unique story worth telling, and we&apos;shere to help you tell it in the most compelling way possible.
             </p>
             <p className="text-gray-600 mb-8 leading-relaxed">
               Our team of creative strategists, content creators, and data analysts work together to build social media campaigns 
-              that not only look great but deliver measurable business results. We've helped over 500 brands across various industries 
+              that not only look great but deliver measurable business results. We&apos;shelped over 500 brands across various industries 
               grow their online presence and achieve their marketing goals.
             </p>
             

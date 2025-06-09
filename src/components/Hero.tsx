@@ -16,7 +16,7 @@ export function Hero() {
 
           {/* Subheading */}
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Transform your brand's digital presence with our comprehensive social media marketing strategies. 
+            Transform your brand&apos;sdigital presence with our comprehensive social media marketing strategies. 
             Drive engagement, build communities, and achieve measurable growth.
           </p>
 

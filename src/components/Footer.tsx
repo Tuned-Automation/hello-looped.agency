@@ -14,7 +14,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
-              Transform your brand's digital presence with our comprehensive social media marketing strategies. 
+              Transform your brand&apos;sdigital presence with our comprehensive social media marketing strategies. 
               We help businesses build authentic connections and drive measurable growth.
             </p>
             

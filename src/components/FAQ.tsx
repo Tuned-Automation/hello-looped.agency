@@ -16,18 +16,18 @@ export function FAQ() {
     },
     {
       question: "What social media platforms do you manage?",
-      answer: "We manage all major social media platforms including Instagram, Facebook, Twitter, LinkedIn, TikTok, Pinterest, and YouTube. We'll recommend the best platforms for your business based on your target audience and industry."
+      answer: "We manage all major social media platforms including Instagram, Facebook, Twitter, LinkedIn, TikTok, Pinterest, and YouTube. We&apos;srecommend the best platforms for your business based on your target audience and industry."
     },
     {
       question: "How do you measure success and ROI?",
-      answer: "We track comprehensive metrics including engagement rates, follower growth, website traffic from social media, lead generation, and conversion rates. You'll receive detailed monthly reports showing your progress and ROI."
+      answer: "We track comprehensive metrics including engagement rates, follower growth, website traffic from social media, lead generation, and conversion rates. You&apos;sreceive detailed monthly reports showing your progress and ROI."
     },
     {
-      question: "Can I see the content before it's posted?",
+      question: "Can I see the content before it&apos;s posted?",
       answer: "Absolutely! We provide content calendars and approval processes. You can review and approve all content before it goes live, or you can trust our team with pre-approved brand guidelines for faster posting."
     },
     {
-      question: "What's included in community management?",
+      question: "What&apos;s included in community management?",
       answer: "Community management includes responding to comments and DMs, engaging with your audience, monitoring brand mentions, managing customer service inquiries, and fostering positive community discussions around your brand."
     },
     {
@@ -36,7 +36,7 @@ export function FAQ() {
     },
     {
       question: "What if I want to cancel my subscription?",
-      answer: "We offer flexible month-to-month contracts with no long-term commitments. You can cancel anytime with 30 days' notice. We're confident in our results and don't believe in locking clients into contracts they don't want."
+      answer: "We offer flexible month-to-month contracts with no long-term commitments. You can cancel anytime with 30 days' notice. We&apos;sconfident in our results and don&apos;sbelieve in locking clients into contracts they don&apos;swant."
     }
   ]
 
@@ -55,7 +55,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Got questions? We've got answers. Here are the most common questions about our social media marketing services.
+            Got questions? We&apos;sgot answers. Here are the most common questions about our social media marketing services.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export function FAQ() {
 
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-6">
-            Still have questions? We're here to help!
+            Still have questions? We&apos;shere to help!
           </p>
           <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
             Contact Our Team
