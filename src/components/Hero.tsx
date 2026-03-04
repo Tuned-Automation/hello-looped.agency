@@ -1,61 +1,72 @@
 export function Hero() {
   return (
-    <section className="pt-20 md:pt-24 pb-16 md:pb-24 bg-gradient-to-br from-purple-50 via-blue-50 to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2 mb-8">
-            <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-            <span className="text-sm font-medium text-gray-700">Trusted by 500+ brands</span>
-          </div>
+    <section className="relative min-h-screen flex items-center aurora-bg overflow-hidden">
+      {/* Grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(124,58,237,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(124,58,237,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-          {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-blue-800 bg-clip-text text-transparent leading-tight">
-            Turn Likes, Comments and Followers into Customers
-          </h1>
+      {/* Glow orbs */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl" />
 
-          {/* Subheading */}
-          <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Transform your brand&apos;sdigital presence with our comprehensive social media marketing strategies. 
-            Drive engagement, build communities, and achieve measurable growth.
-          </p>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-              Start Your Journey
-            </button>
-            <button className="flex items-center text-gray-700 font-semibold text-lg hover:text-purple-600 transition-colors">
-              <div className="w-12 h-12 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-full flex items-center justify-center mr-3 hover:shadow-lg transition-all duration-300">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-              Watch Demo
-            </button>
-          </div>
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-10 fade-up">
+          <span className="w-2 h-2 bg-violet-400 rounded-full pulse-ring" />
+          <span className="text-xs font-medium text-gray-300 tracking-wide uppercase">Trusted by 500+ brands worldwide</span>
+        </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">500+</div>
-              <div className="text-sm text-gray-600">Happy Clients</div>
+        {/* Headline */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.05] tracking-tight fade-up">
+          <span className="text-white">Turn Followers</span>
+          <br />
+          <span className="gradient-text">into Customers</span>
+        </h1>
+
+        {/* Subheading */}
+        <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed fade-up">
+          We transform your brand&apos;s social presence into a revenue-generating machine.
+          Data-driven strategy. Creative execution. Measurable growth.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-20 fade-up">
+          <a href="#contact"
+            className="group flex items-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-base hover:shadow-2xl hover:shadow-violet-500/30 hover:scale-105 transition-all duration-300">
+            Start Your Journey
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+          <a href="#services"
+            className="flex items-center gap-3 text-gray-300 hover:text-white font-semibold text-base transition-colors group">
+            <div className="w-12 h-12 glass rounded-full flex items-center justify-center group-hover:border-violet-500/40 transition-colors">
+              <svg className="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
             </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">2M+</div>
-              <div className="text-sm text-gray-600">Followers Gained</div>
+            See Our Work
+          </a>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto fade-up">
+          {[
+            { value: '500+', label: 'Happy Clients' },
+            { value: '2M+', label: 'Followers Gained' },
+            { value: '95%', label: 'Client Retention' },
+            { value: '3x', label: 'ROI Average' },
+          ].map((stat) => (
+            <div key={stat.label} className="glass rounded-2xl p-5 text-center glass-hover">
+              <div className="text-3xl font-bold gradient-text-accent mb-1">{stat.value}</div>
+              <div className="text-xs text-gray-500 font-medium tracking-wide uppercase">{stat.label}</div>
             </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">95%</div>
-              <div className="text-sm text-gray-600">Client Retention</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">3x</div>
-              <div className="text-sm text-gray-600">ROI Average</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050508] to-transparent" />
     </section>
   )
-} 
+}

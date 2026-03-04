@@ -1,131 +1,49 @@
-'use client'
-
-import { useState } from 'react'
+const testimonials = [
+  { name: 'Sarah M.', company: 'Bloom Co.', text: 'Looped tripled our Instagram revenue within 60 days. Their team is sharp, responsive, and genuinely invested in our growth.', stars: 5 },
+  { name: 'David R.', company: 'NexaTech', text: 'We were sceptical of another agency promise. Looped proved us wrong — our LinkedIn pipeline exploded in 90 days.', stars: 5 },
+  { name: 'Priya K.', company: 'Aura Beauty', text: 'The content quality is unmatched. Our brand looks incredible and our engagement rate went from 1% to 8.4%.', stars: 5 },
+  { name: 'Marcus W.', company: 'Forge Fitness', text: 'Best agency investment we have made. ROI is clear, the team is brilliant, and results speak for themselves.', stars: 5 },
+  { name: 'Lena F.', company: 'Curio Studio', text: 'Looped understands creative brands. They elevated our aesthetic while driving real, measurable follower growth.', stars: 5 },
+  { name: 'Tom H.', company: 'StackFlow', text: 'Switching to Looped was the best decision. Our SaaS went from zero social presence to 15k engaged followers.', stars: 5 },
+]
 
 export function Testimonials() {
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      company: "TechStart Inc.",
-      role: "Marketing Director",
-      content: "Looped transformed our social media presence completely. Within 3 months, our engagement increased by 300% and we saw a significant boost in brand awareness. Their strategic approach is unmatched.",
-      rating: 5
-    },
-    {
-      name: "Michael Chen",
-      company: "Fashion Forward",
-      role: "Brand Manager",
-      content: "Working with Looped has been a game-changer for our fashion brand. They understand our aesthetic perfectly and have helped us build a loyal community of 50K+ followers who actually convert to customers.",
-      rating: 5
-    },
-    {
-      name: "Emily Rodriguez",
-      company: "Local Eats",
-      role: "Restaurant Owner",
-      content: "As a small business owner, I was skeptical about social media marketing. Looped not only proved me wrong but also helped increase our foot traffic by 40% through their targeted campaigns.",
-      rating: 5
-    },
-    {
-      name: "David Park",
-      company: "FitLife Gym",
-      role: "CEO",
-      content: "The team at Looped doesn&apos;t just create content; they create experiences. Our gym&apos;s social media now tells compelling stories that motivate and inspire our community every single day.",
-      rating: 5
-    }
-  ]
-
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-  }
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
-  }
-
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 md:py-32 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
-            Testimonials
+          <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+            <span className="text-xs font-medium text-violet-400 tracking-widest uppercase">Social Proof</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            What Our Clients Say
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            Don&apos;t take our word for it<br /><span className="gradient-text">take theirs</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what our clients have to say about working with Looped.
-          </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Main Testimonial */}
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
-            <div className="flex mb-6">
-              {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-              ))}
-            </div>
-            
-            <blockquote className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-              &ldquo;{testimonials[currentIndex].content}&rdquo;
-            </blockquote>
-            
-            <div className="flex items-center">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center mr-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+          {testimonials.map((t, i) => (
+            <div key={i} className="glass rounded-2xl p-6 break-inside-avoid glass-hover">
+              <div className="flex gap-0.5 mb-4">
+                {Array.from({ length: t.stars }).map((_, s) => (
+                  <svg key={s} className="w-4 h-4 text-violet-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
               </div>
-              <div>
-                <div className="font-semibold text-gray-900">
-                  {testimonials[currentIndex].name}
+              <p className="text-gray-300 text-sm leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white text-xs font-bold">
+                  {t.name[0]}
                 </div>
-                <div className="text-gray-600">
-                  {testimonials[currentIndex].role} at {testimonials[currentIndex].company}
+                <div>
+                  <div className="text-sm font-medium text-white">{t.name}</div>
+                  <div className="text-xs text-gray-500">{t.company}</div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Navigation */}
-          <div className="flex justify-center items-center mt-8 space-x-4">
-            <button
-              onClick={prevTestimonial}
-              className="w-12 h-12 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center group"
-            >
-              <svg className="w-5 h-5 text-gray-600 group-hover:text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            {/* Dots */}
-            <div className="flex space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-purple-600' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={nextTestimonial}
-              className="w-12 h-12 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center group"
-            >
-              <svg className="w-5 h-5 text-gray-600 group-hover:text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   )
-} 
+}

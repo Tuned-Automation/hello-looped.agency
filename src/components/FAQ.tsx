@@ -2,105 +2,52 @@
 
 import { useState } from 'react'
 
+const faqs = [
+  { q: 'How quickly will I see results?', a: 'Most clients see measurable engagement growth within 30 days. Significant follower growth and revenue impact typically show within 60–90 days depending on your starting point and goals.' },
+  { q: 'Do you work with all business types?', a: 'Yes — from eCommerce to SaaS, beauty to fitness, B2B to B2C. We tailor every strategy to your industry, audience, and objectives.' },
+  { q: 'What platforms do you manage?', a: 'We cover Instagram, TikTok, LinkedIn, X (Twitter), Facebook, YouTube, Pinterest, and Snapchat. We recommend platforms based on where your audience actually is.' },
+  { q: 'Are there any long-term contracts?', a: 'No lock-ins. We work month-to-month because we believe results should keep you with us — not a contract.' },
+  { q: 'Who creates the content?', a: 'Our in-house creative team — designers, videographers, and copywriters — produces everything. All content is reviewed and approved by you before publishing.' },
+]
+
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
-
-  const faqs = [
-    {
-      question: "How quickly will I see results from social media marketing?",
-      answer: "While every business is different, most of our clients start seeing increased engagement within the first 2-4 weeks. Significant growth in followers and brand awareness typically occurs within 2-3 months of consistent, strategic posting and community engagement."
-    },
-    {
-      question: "Do you work with businesses in my industry?",
-      answer: "We work with businesses across all industries including technology, fashion, food & beverage, fitness, healthcare, and more. Our team adapts strategies to fit your specific industry requirements and target audience behavior patterns."
-    },
-    {
-      question: "What social media platforms do you manage?",
-      answer: "We manage all major social media platforms including Instagram, Facebook, Twitter, LinkedIn, TikTok, Pinterest, and YouTube. We&apos;srecommend the best platforms for your business based on your target audience and industry."
-    },
-    {
-      question: "How do you measure success and ROI?",
-      answer: "We track comprehensive metrics including engagement rates, follower growth, website traffic from social media, lead generation, and conversion rates. You&apos;sreceive detailed monthly reports showing your progress and ROI."
-    },
-    {
-      question: "Can I see the content before it&apos;s posted?",
-      answer: "Absolutely! We provide content calendars and approval processes. You can review and approve all content before it goes live, or you can trust our team with pre-approved brand guidelines for faster posting."
-    },
-    {
-      question: "What&apos;s included in community management?",
-      answer: "Community management includes responding to comments and DMs, engaging with your audience, monitoring brand mentions, managing customer service inquiries, and fostering positive community discussions around your brand."
-    },
-    {
-      question: "Do you provide social media advertising services?",
-      answer: "Yes! Our Professional and Enterprise plans include paid social media advertising. We create, manage, and optimize ad campaigns across platforms to maximize your reach and conversions while staying within your budget."
-    },
-    {
-      question: "What if I want to cancel my subscription?",
-      answer: "We offer flexible month-to-month contracts with no long-term commitments. You can cancel anytime with 30 days' notice. We&apos;sconfident in our results and don&apos;sbelieve in locking clients into contracts they don&apos;swant."
-    }
-  ]
-
-  const toggleQuestion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
-
+  const [open, setOpen] = useState<number | null>(null)
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-24 md:py-32 relative">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
-            FAQ
+          <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+            <span className="text-xs font-medium text-violet-400 tracking-widest uppercase">FAQ</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Frequently Asked Questions
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            Common <span className="gradient-text">questions</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Got questions? We&apos;sgot answers. Here are the most common questions about our social media marketing services.
-          </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-sm mb-4 overflow-hidden"
-            >
+        <div className="space-y-2">
+          {faqs.map((faq, i) => (
+            <div key={i} className={`glass rounded-2xl overflow-hidden transition-all duration-200 ${open === i ? 'border-violet-500/30' : ''}`}>
               <button
-                onClick={() => toggleQuestion(index)}
-                className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                onClick={() => setOpen(open === i ? null : i)}
               >
-                <h3 className="text-lg font-semibold text-gray-900 pr-8">
-                  {faq.question}
-                </h3>
-                <div className={`flex-shrink-0 transform transition-transform duration-200 ${
-                  openIndex === index ? 'rotate-180' : 'rotate-0'
-                }`}>
-                  <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <span className="text-white font-medium text-sm">{faq.q}</span>
+                <div className={`shrink-0 w-7 h-7 rounded-full border border-white/10 flex items-center justify-center transition-all duration-300 ${open === i ? 'border-violet-500/40 bg-violet-500/10 rotate-45' : ''}`}>
+                  <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4"/>
                   </svg>
                 </div>
               </button>
-              
-              {openIndex === index && (
-                <div className="px-6 pb-6">
-                  <div className="text-gray-600 leading-relaxed">
-                    {faq.answer}
-                  </div>
+              {open === i && (
+                <div className="px-6 pb-5">
+                  <div className="divider mb-4" />
+                  <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>
           ))}
         </div>
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-6">
-            Still have questions? We&apos;shere to help!
-          </p>
-          <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            Contact Our Team
-          </button>
-        </div>
       </div>
     </section>
   )
-} 
+}

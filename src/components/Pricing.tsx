@@ -1,141 +1,100 @@
-export function Pricing() {
-  const plans = [
-    {
-      name: "Individual",
-      price: 99,
-      period: "month",
-      description: "Perfect for solo entrepreneurs and small businesses just getting started with social media.",
-      features: [
-        "3 Social Media Platforms",
-        "12 Posts per Month",
-        "Basic Analytics Report",
-        "Community Management",
-        "Email Support"
-      ],
-      highlighted: false
-    },
-    {
-      name: "Professional",
-      price: 199,
-      period: "month",
-      description: "Ideal for growing businesses that need comprehensive social media management and strategy.",
-      features: [
-        "5 Social Media Platforms",
-        "24 Posts per Month",
-        "Advanced Analytics & Insights",
-        "Community Management",
-        "Content Strategy Planning",
-        "Paid Advertising Management",
-        "Priority Support"
-      ],
-      highlighted: true
-    },
-    {
-      name: "Enterprise",
-      price: 399,
-      period: "month",
-      description: "Complete social media solution for large businesses and agencies with complex needs.",
-      features: [
-        "Unlimited Social Media Platforms",
-        "60+ Posts per Month",
-        "Comprehensive Analytics Suite",
-        "Dedicated Account Manager",
-        "Custom Content Strategy",
-        "Multi-Channel Ad Campaigns",
-        "24/7 Priority Support",
-        "Monthly Strategy Calls"
-      ],
-      highlighted: false
-    }
-  ]
+const plans = [
+  {
+    name: 'Starter',
+    price: '1,500',
+    desc: 'Perfect for emerging brands ready to build a real social presence.',
+    features: ['2 social platforms', 'Monthly strategy call', '12 posts/month', 'Basic analytics report', 'Community management'],
+    popular: false,
+  },
+  {
+    name: 'Growth',
+    price: '3,500',
+    desc: 'For scaling brands that need a full-service social team in their corner.',
+    features: ['4 social platforms', 'Weekly strategy calls', '30 posts/month', 'Advanced analytics', 'Paid ad management', 'Influencer outreach'],
+    popular: true,
+  },
+  {
+    name: 'Enterprise',
+    price: 'Custom',
+    desc: 'Fully tailored solutions for large brands with complex needs.',
+    features: ['Unlimited platforms', 'Dedicated account team', 'Custom content volume', 'Real-time reporting dashboard', 'Global campaign management', 'Priority support'],
+    popular: false,
+  },
+]
 
+export function Pricing() {
   return (
-    <section id="pricing" className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="py-24 md:py-32 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-950/5 to-transparent" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <div className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
-            Pricing Plans
+          <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-6">
+            <span className="text-xs font-medium text-violet-400 tracking-widest uppercase">Pricing</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Choose Your Growth Plan
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+            Simple, transparent<br /><span className="gradient-text">pricing</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Transparent pricing with no hidden fees. Pick the plan that fits your business needs and scale as you grow.
-          </p>
+          <p className="text-gray-400 max-w-md mx-auto">No hidden fees. No lock-in contracts. Just results.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative rounded-2xl p-8 ${
-                plan.highlighted
-                  ? 'bg-gradient-to-br from-purple-600 to-blue-600 text-white shadow-2xl scale-105 md:scale-110'
-                  : 'bg-gray-50 border border-gray-200 hover:shadow-lg'
-              } transition-all duration-300`}
-            >
-              {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold">
-                    Most Popular
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {plans.map((plan) => (
+            <div key={plan.name}
+              className={`relative rounded-2xl p-8 flex flex-col glass-hover ${
+                plan.popular
+                  ? 'bg-gradient-to-b from-violet-600/20 to-indigo-600/10 border border-violet-500/40 shadow-2xl shadow-violet-500/20'
+                  : 'glass'
+              }`}>
+              {plan.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-violet-500 to-indigo-500 text-white text-xs font-bold px-4 py-1.5 rounded-full tracking-wide">
+                    MOST POPULAR
+                  </span>
                 </div>
               )}
-              
-              <div className="text-center mb-8">
-                <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                  {plan.name}
-                </h3>
-                <div className="mb-4">
-                  <span className={`text-4xl md:text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                    ${plan.price}
-                  </span>
-                  <span className={`text-lg ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
-                    /{plan.period}
-                  </span>
-                </div>
-                <p className={`${plan.highlighted ? 'text-white/90' : 'text-gray-600'} leading-relaxed`}>
-                  {plan.description}
-                </p>
+
+              <div className="mb-6">
+                <h3 className="text-white font-bold text-lg mb-1">{plan.name}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{plan.desc}</p>
               </div>
 
-              <ul className="space-y-4 mb-8">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5 ${
-                      plan.highlighted ? 'bg-white/20' : 'bg-green-100'
-                    }`}>
-                      <svg className={`w-3 h-3 ${plan.highlighted ? 'text-white' : 'text-green-600'}`} fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              <div className="mb-8">
+                {plan.price === 'Custom' ? (
+                  <span className="text-4xl font-bold text-white">Custom</span>
+                ) : (
+                  <div className="flex items-end gap-1">
+                    <span className="text-gray-400 text-lg mb-1">$</span>
+                    <span className="text-4xl font-bold text-white">{plan.price}</span>
+                    <span className="text-gray-500 text-sm mb-1">/mo</span>
+                  </div>
+                )}
+              </div>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-center gap-2.5 text-sm text-gray-400">
+                    <div className="w-5 h-5 rounded-full bg-violet-500/15 border border-violet-500/30 flex items-center justify-center shrink-0">
+                      <svg className="w-3 h-3 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7"/>
                       </svg>
                     </div>
-                    <span className={plan.highlighted ? 'text-white' : 'text-gray-700'}>
-                      {feature}
-                    </span>
+                    {feature}
                   </li>
                 ))}
               </ul>
 
-              <button className={`w-full py-4 px-6 rounded-full font-semibold text-lg transition-all duration-300 ${
-                plan.highlighted
-                  ? 'bg-white text-purple-600 hover:bg-gray-50 hover:shadow-lg'
-                  : 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:shadow-xl transform hover:scale-105'
-              }`}>
-                Get Started
-              </button>
+              <a href="#contact"
+                className={`block text-center py-3.5 rounded-full font-semibold text-sm transition-all duration-200 ${
+                  plan.popular
+                    ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-violet-500/30 hover:scale-105'
+                    : 'border border-white/10 text-gray-300 hover:border-violet-500/40 hover:text-white'
+                }`}>
+                {plan.price === 'Custom' ? 'Contact Us' : 'Get Started'}
+              </a>
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
-            Need a custom solution? We offer tailored packages for unique requirements.
-          </p>
-          <button className="text-purple-600 font-semibold hover:text-purple-700 transition-colors">
-            Contact us for custom pricing →
-          </button>
         </div>
       </div>
     </section>
   )
-} 
+}

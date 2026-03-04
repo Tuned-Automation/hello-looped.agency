@@ -1,74 +1,76 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-[#050508]/90 backdrop-blur-xl border-b border-purple-900/30 shadow-lg shadow-purple-950/20' : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold text-xl px-3 py-1 rounded-lg">
-              Looped
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-violet-500/30">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="5" stroke="white" strokeWidth="1.5" opacity="0.7"/>
+                <circle cx="8" cy="8" r="2" fill="white"/>
+              </svg>
             </div>
+            <span className="font-bold text-xl text-white tracking-tight">Looped<span className="text-violet-400">.</span></span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#about" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
-              About
-            </Link>
-            <Link href="#services" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
-              Services
-            </Link>
-            <Link href="#team" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
-              Team
-            </Link>
-            <Link href="#pricing" className="text-gray-700 hover:text-purple-600 transition-colors font-medium">
-              Pricing
-            </Link>
-            <Link href="#contact" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-300 font-medium">
-              Get Started
-            </Link>
+          <nav className="hidden md:flex items-center gap-8">
+            {['About', 'Services', 'Team', 'Pricing'].map((item) => (
+              <Link key={item} href={`#${item.toLowerCase()}`}
+                className="text-sm text-gray-400 hover:text-white transition-colors duration-200 font-medium">
+                {item}
+              </Link>
+            ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
-          >
+          <div className="hidden md:flex items-center gap-3">
+            <Link href="#contact" className="text-sm text-gray-400 hover:text-white transition-colors font-medium px-4 py-2">
+              Log in
+            </Link>
+            <Link href="#contact"
+              className="text-sm font-semibold px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white hover:shadow-lg hover:shadow-violet-500/30 hover:scale-105 transition-all duration-200">
+              Get Started
+            </Link>
+          </div>
+
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg glass text-gray-400 hover:text-white transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
+              {isMenuOpen
+                ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12"/>
+                : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16"/>
+              }
             </svg>
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
-            <nav className="flex flex-col py-4">
-              <Link href="#about" className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-purple-600 transition-colors">
-                About
-              </Link>
-              <Link href="#services" className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-purple-600 transition-colors">
-                Services
-              </Link>
-              <Link href="#team" className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-purple-600 transition-colors">
-                Team
-              </Link>
-              <Link href="#pricing" className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-purple-600 transition-colors">
-                Pricing
-              </Link>
-              <div className="px-4 py-3">
-                <Link href="#contact" className="block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-full text-center">
+          <div className="md:hidden glass rounded-2xl mb-4 overflow-hidden">
+            <nav className="flex flex-col py-2">
+              {['About', 'Services', 'Team', 'Pricing'].map((item) => (
+                <Link key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)}
+                  className="px-5 py-3 text-gray-300 hover:text-white hover:bg-white/5 transition-colors font-medium text-sm">
+                  {item}
+                </Link>
+              ))}
+              <div className="px-5 py-3">
+                <Link href="#contact" onClick={() => setIsMenuOpen(false)}
+                  className="block text-center bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
                   Get Started
                 </Link>
               </div>
@@ -78,4 +80,4 @@ export function Header() {
       </div>
     </header>
   )
-} 
+}
